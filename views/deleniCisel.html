@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="utf-8" />
+    <title>Titulek</title>
+ 
+    <style>
+        textarea {width:100%; height: 10em; font-size: 3vw;}
+        .text {font-size: 3vw}
+ 
+    </style>
+ 
+    <script>
+
+    function vypocti() {
+        const vstup = document.getElementById('vstup').value
+        const pole = vstup.split("\n")
+        const poleCisel = pole.map(x => parseFloat(x))
+        prvocisla = [];
+        sum = 0;
+        min = Infinity;
+        max = -Infinity;
+        nan = 0;
+        odd = [];
+        even = [];
+        for (let i = 0; i < poleCisel.length; i++) {
+            let temp = poleCisel[i];
+            if(Number.isNaN(temp)) {
+                nan ++;
+            }
+            else {
+                let pocetDelitelu = 0;
+                if(Number.isInteger(temp)) {
+                    for (let x = 2; x <= Math.sqrt(temp); x++) {
+                        if(Number.isInteger(temp/x)) {
+                            pocetDelitelu ++;
+                        }                                      
+                    }
+                    if (pocetDelitelu == 0 && temp > 1) {
+                    prvocisla.push(temp);
+                    }
+                }
+
+                if(Number.isInteger(temp/2)) {
+                    even.push(temp);
+                }
+                else {
+                    odd.push(temp);
+                }
+
+                sum += temp;
+
+                if(temp < min) {
+                    min = temp;
+                }
+
+                if(temp > max) {
+                    max = temp;
+                }
+            }   
+        }
+        avrg = sum / (poleCisel.length - nan);
+        
+        document.getElementById("text1").innerHTML = "prvočísla: " + prvocisla;
+        document.getElementById("text2").innerHTML = "součet: " + sum;
+        document.getElementById("text3").innerHTML = "nejmenší číslo: " + min;
+        document.getElementById("text4").innerHTML = "největší číslo: " + max;
+        document.getElementById("text5").innerHTML = "průměr: " + avrg;
+        document.getElementById("text6").innerHTML = "sudé: " + even;
+        document.getElementById("text7").innerHTML = "liché: " + odd;
+    }
+
+    </script>
+</head>
+ 
+<body>
+
+    <textarea id = "vstup">
+        </textarea>
+    <input type="button" onclick="vypocti()" value = "spočti">
+    <p class = "text" id = "text1"></p>
+    <p class = "text" id = "text2"></p>
+    <p class = "text" id = "text3"></p>
+    <p class = "text" id = "text4"></p>
+    <p class = "text" id = "text5"></p>
+    <p class = "text" id = "text6"></p>
+    <p class = "text" id = "text7"></p>
+</body>
+</html>
+
