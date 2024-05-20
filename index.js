@@ -53,7 +53,7 @@ app.get("^/$|/index(.html)?", (req, res) => {   // ^ = musi zacinat, $ = musi ko
     //res.sendFile("./views/index.html", {root: __dirname});   
     //res.send("...")
 
-    res.sendFile(path.join(__dirname, "public", "subdir", "index.html"))
+    res.sendFile(path.join(__dirname, "public", "index.html"))
 });
 
 app.get("/new-page(.html)?", (req, res) => {
