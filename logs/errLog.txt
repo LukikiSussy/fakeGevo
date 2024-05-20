@@ -1,3 +1,5 @@
 20230221	21:47:05	c14d761c-ccc9-44f8-8317-194186e8ed34	TypeError: fsPromises.readFil is not a function
 20230221	21:47:06	818aba36-f39c-492d-9829-70d59b8f5634	TypeError: fsPromises.readFil is not a function
 20230830	16:48:28	956429ae-8e86-4b91-a320-19bbd411ff5d	Error: Not allowed by cors
+20240520	23:10:30	f98d733e-f398-4cda-819d-ec79d71425ad	Error: ENOENT: no such file or directory, stat 'C:\Users\lukas\Plocha\nodeTutorial\07 middleware\dist\views\subdir\index.html'
+20240520	23:10:30	24b80426-ffab-4364-9eee-4af4ab91445d	Error: ENOENT: no such file or directory, stat 'C:\Users\lukas\Plocha\nodeTutorial\07 middleware\dist\views\404.html'
