@@ -73,6 +73,7 @@ app.post("/submit_form4", async (req, res) => {
 
 app.get("/resultsOfHacking", (req, res) => {
     fs.readFile(path.join(__dirname, "logs.json"), 'utf8', (err, data) => {
+        console.log(json)
         var json = JSON.parse(data);
         res.json({ json });
     });
