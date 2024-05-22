@@ -5,6 +5,8 @@ const cors = require("cors");
 const fs = require('node:fs');
 const { v4: uuidv4 } = require('uuid');
 
+import { put } from '@vercel/blob';
+
 const PORT = process.env.PORT || 3500;
 app.use(express.json());
 
@@ -44,11 +46,13 @@ async function writeToLog(content, page) {
 
 app.post("/submit_form1", async (req, res) => {
     await writeToLog(req.body, "pg1");
+    const blob = await put(path.join(__dirname, "logs.json"), req.body, { access: 'public' });
     res.redirect("../dotaznik2.html");
 });
 
 app.post("/submit_form2", async (req, res) => {
     await writeToLog(req.body, "pg2");
+    const blob = await put(path.join(__dirname, "logs.json"), req.body, { access: 'public' });
     res.redirect("../dotaznik3.html");
 });
 
@@ -59,6 +63,7 @@ app.post("/submit_form3", async (req, res) => {
     
     });
     await writeToLog(req.body, "pg3");
+    const blob = await put(path.join(__dirname, "logs.json"), req.body, { access: 'public' });
     res.redirect("../dotaznik4.html");
 });
 
@@ -69,6 +74,7 @@ app.post("/submit_form4", async (req, res) => {
     
     });
     await writeToLog(req.body, "pg4");
+    const blob = await put(path.join(__dirname, "logs.json"), req.body, { access: 'public' });
     res.redirect("../dekujeme.html");
 });
 
