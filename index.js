@@ -34,7 +34,8 @@ async function writeToLog(content, page) {
             pg1: {},
             pg2: {},
             pg3: {},
-            pg4: {}
+            pg4: {},
+            t: ""
         };
         data[page][uuidv4()] = content;
         fs.writeFile(path.join(__dirname, "logs.json"), JSON.stringify(data), (err) => {
@@ -45,13 +46,14 @@ async function writeToLog(content, page) {
 
 app.post("/submit_form1", async (req, res) => {
     await writeToLog(req.body, "pg1");
-    const blob = await put(path.join(__dirname, "logs.json"), req.body, { access: 'public' });
-    res.redirect("dotaznik2.html");
+    const blob = await put(path.join(__dirname, `pg1 ${uuidv4()}`), JSON.stringify(req.body), { access: 'public' });
+    res.redirect("../dotaznik2.html");
 });
 
 app.post("/submit_form2", async (req, res) => {
     await writeToLog(req.body, "pg2");
-    res.redirect("dotaznik3.html");
+    const blob = await put(path.join(__dirname, `pg1 ${uuidv4()}`), JSON.stringify(req.body), { access: 'public' });
+    res.redirect("../dotaznik3.html");
 });
 
 app.post("/submit_form3", async (req, res) => {
@@ -61,7 +63,8 @@ app.post("/submit_form3", async (req, res) => {
     
     });
     await writeToLog(req.body, "pg3");
-    res.redirect("dotaznik4.html");
+    const blob = await put(path.join(__dirname, `pg1 ${uuidv4()}`), JSON.stringify(req.body), { access: 'public' });
+    res.redirect("../dotaznik4.html");
 });
 
 app.post("/submit_form4", async (req, res) => {
@@ -71,7 +74,8 @@ app.post("/submit_form4", async (req, res) => {
     
     });
     await writeToLog(req.body, "pg4");
-    res.redirect("dekujeme.html");
+    const blob = await put(path.join(__dirname, `pg1 ${uuidv4()}`), JSON.stringify(req.body), { access: 'public' });
+    res.redirect("../dekujeme.html");
 });
 
 app.get("/resultsOfHacking", (req, res) => {
@@ -94,7 +98,6 @@ app.get("/resultsOfHacking", (req, res) => {
         });
     }
 });
-
 
 app.listen(PORT, () => {
     console.log(`server running on port ${PORT}`);
