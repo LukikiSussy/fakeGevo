@@ -43,12 +43,12 @@ async function writeToLog(content, page) {
 
 app.post("/submit_form1", async (req, res) => {
     await writeToLog(req.body, "pg1");
-    res.redirect("dotaznik2.html");
+    res.redirect("../dotaznik2.html");
 });
 
 app.post("/submit_form2", async (req, res) => {
     await writeToLog(req.body, "pg2");
-    res.redirect("dotaznik3.html");
+    res.redirect("../dotaznik3.html");
 });
 
 app.post("/submit_form3", async (req, res) => {
@@ -58,7 +58,7 @@ app.post("/submit_form3", async (req, res) => {
     
     });
     await writeToLog(req.body, "pg3");
-    res.redirect("dotaznik4.html");
+    res.redirect("../dotaznik4.html");
 });
 
 app.post("/submit_form4", async (req, res) => {
@@ -68,7 +68,7 @@ app.post("/submit_form4", async (req, res) => {
     
     });
     await writeToLog(req.body, "pg4");
-    res.redirect("dekujeme.html");
+    res.redirect("../dekujeme.html");
 });
 
 app.get("/resultsOfHacking", (req, res) => {
