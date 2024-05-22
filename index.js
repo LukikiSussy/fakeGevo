@@ -72,12 +72,25 @@ app.post("/submit_form4", async (req, res) => {
 });
 
 app.get("/resultsOfHacking", (req, res) => {
-    fs.readFile(path.join(__dirname, "logs.json"), 'utf8', (err, data) => {
-        var json = JSON.parse(data);
-        res.json({ json });
-    });
+    if (fs.existsSync(path.join(__dirname, "logs.json"))) {
+        fs.readFile(path.join(__dirname, "logs.json"), 'utf8', (err, data) => {
+            var json = JSON.parse(data);
+            res.json({ json });
+        })
+    }
+    else {
+        data = {
+            pg1: {},
+            pg2: {},
+            pg3: {},
+            pg4: {},
+        };
+        fs.writeFile(path.join(__dirname, "logs.json"), JSON.stringify(data), (err) => {
+            if (err) console.log(err);
+            res.json({ data });
+        });
+    }
 });
-
 
 
 app.listen(PORT, () => {
