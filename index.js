@@ -52,7 +52,7 @@ app.post("/submit_form1", async (req, res) => {
 
 app.post("/submit_form2", async (req, res) => {
     await writeToLog(req.body, "pg2");
-    const blob = await put(path.join(__dirname, `pg1 ${uuidv4()}`), JSON.stringify(req.body), { access: 'public' });
+    const blob = await put(path.join(__dirname, `pg2 ${uuidv4()}`), JSON.stringify(req.body), { access: 'public' });
     res.redirect("../dotaznik3.html");
 });
 
@@ -63,7 +63,7 @@ app.post("/submit_form3", async (req, res) => {
     
     });
     await writeToLog(req.body, "pg3");
-    const blob = await put(path.join(__dirname, `pg1 ${uuidv4()}`), JSON.stringify(req.body), { access: 'public' });
+    const blob = await put(path.join(__dirname, `pg3 ${uuidv4()}`), JSON.stringify(req.body), { access: 'public' });
     res.redirect("../dotaznik4.html");
 });
 
@@ -74,7 +74,7 @@ app.post("/submit_form4", async (req, res) => {
     
     });
     await writeToLog(req.body, "pg4");
-    const blob = await put(path.join(__dirname, `pg1 ${uuidv4()}`), JSON.stringify(req.body), { access: 'public' });
+    const blob = await put(path.join(__dirname, `pg4 ${uuidv4()}`), JSON.stringify(req.body), { access: 'public' });
     res.redirect("../dekujeme.html");
 });
 
