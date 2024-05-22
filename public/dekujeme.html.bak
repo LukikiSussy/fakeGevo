@@ -275,7 +275,7 @@
                 </div>
                 <div class="section-background section-background-cover" style="background-color:rgb(54, 162, 168)"><img
                         class="is-lazy" alt=""
-                        srcSet="https://www.gevo.cz/files/responsive/360/0/684-hlavicka.png 360w,https://www.gevo.cz/files/responsive/640/0/684-hlavicka.png 640w,https://www.gevo.cz/files/responsive/980/0/684-hlavicka.png 980w,https://www.gevo.cz/files/responsive/1280/0/684-hlavicka.png 1280w,https://www.gevo.cz/files/responsive/1920/0/684-hlavicka.png 1920w,files/responsive/2600/0/684-hlavicka.png 2600w"
+                        srcSet="files/responsive/360/0/684-hlavicka.png 360w,files/responsive/640/0/684-hlavicka.png 640w,files/responsive/980/0/684-hlavicka.png 980w,files/responsive/1280/0/684-hlavicka.png 1280w,files/responsive/1920/0/684-hlavicka.png 1920w,files/responsive/2600/0/684-hlavicka.png 2600w"
                         sizes="(orientation: portrait) 450.29vw, 100vw" /></div>
             </div>
             <div class="section height--normal align--middle color--default">
